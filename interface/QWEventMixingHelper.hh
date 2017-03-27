@@ -1,6 +1,10 @@
 
 // Mixing event helper class
 // events are sorted in vz and centrality ranges
+//
+
+#include <vector>
+#include <list>
 
 class QWEventMixingHelper {
 public:
@@ -13,7 +17,7 @@ public:
 		std::vector<double>	pT;
 		std::vector<double>	weight;
 	};
-	typedef	std::vector<MEvent>	vEvent;
+	typedef	std::list<MEvent>	vEvent;
 
 	int	push(double, double, MEvent);
 	vEvent*	get(double, double);
@@ -23,7 +27,7 @@ private:
 	int	Ncent_;
 	std::vector<double>	pz_;
 	std::vector<double>	pCent_;
-	int const		dept_;
+	unsigned int const	dept_;
 
 	// vEvent mix[Nvz][Ncent];
 	std::vector< std::vector< vEvent > >	mix;
